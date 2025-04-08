@@ -1,0 +1,1 @@
+v0 (2025-03-20): Faces detected, issues found: the women with face coverede wasn't detected properly, a glitch of detection amidst a text

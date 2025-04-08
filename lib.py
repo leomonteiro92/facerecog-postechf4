@@ -3,10 +3,6 @@ import cv2.data
 from tqdm import tqdm
 from deepface import DeepFace
 
-face_cascade = cv2.CascadeClassifier(
-    cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
-)
-
 
 def load_video(input_path: str, output_path: str):
     """
@@ -42,10 +38,12 @@ def load_video(input_path: str, output_path: str):
 
 
 def detect_face_and_emotion(frame: cv2.typing.MatLike) -> cv2.typing.MatLike:
+    # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     detection = DeepFace.analyze(
         frame,
         actions=["emotion"],
         enforce_detection=False,
+        detector_backend="retinaface",  # make the code very slow
     )
 
     for face in detection:
