@@ -1,6 +1,5 @@
 import os
 import cv2
-import cv2.data
 import face_recognition
 import numpy as np
 from tqdm import tqdm

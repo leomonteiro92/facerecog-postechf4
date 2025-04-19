@@ -1,5 +1,4 @@
 import cv2
-import cv2.data
 from tqdm import tqdm
 from deepface import DeepFace
 
