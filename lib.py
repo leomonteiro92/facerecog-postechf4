@@ -2,6 +2,10 @@ import cv2
 from tqdm import tqdm
 from deepface import DeepFace
 
+# BACKEND_MODEL = "opencv"
+# BACKEND_MODEL = "mtcnn"
+BACKEND_MODEL = "retinaface"
+
 
 def load_video(input_path: str, output_path: str):
     """
@@ -42,7 +46,7 @@ def detect_face_and_emotion(frame: cv2.typing.MatLike) -> cv2.typing.MatLike:
         frame,
         actions=["emotion"],
         enforce_detection=False,
-        detector_backend="retinaface",  # make the code very slow
+        detector_backend=BACKEND_MODEL,  # make the code very slow
     )
 
     for face in detection:
